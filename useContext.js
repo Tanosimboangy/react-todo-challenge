@@ -1,4 +1,3 @@
-import { format } from 'path';
 import { useState } from 'react';
 function useContext() {
 
@@ -12,9 +11,23 @@ function useContext() {
 
     function handleSubmit(e) {
         e.preventDefault();
-        setData(prev => [...prev, inputValue] );
+        if (inputValue === "") return;
+        setData(prev => [...prev,
+        {
+            id: Date.now(),
+            title: inputValue,
+            isComplete: false,
+        }
+        ]);
+        setInputValue('');
+        e.target.reset();
     }
 
-  return {inputValue, handleChange, handleSubmit, data };
+    function handleChangeCheck(id) {
+        const crossWord = data.find(item => item.id === id);
+        console.log(crossWord);
+    }
+
+  return {inputValue, handleChange, handleSubmit, data, handleChangeCheck };
 };
 export default useContext;

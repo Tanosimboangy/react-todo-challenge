@@ -1,31 +1,22 @@
 import React from "react";
 import useContext from "./useContext";
+import All from "./All";
 
 function App() {
-    const { handleChange, handleSubmit, data } = useContext();
+    const { handleChange, handleSubmit, data, handleChangeCheck } = useContext();
     return (
         <div className="container">
             <h1>TO DO APP</h1>
-            <form>
+
+            <form onSubmit={handleSubmit}>
                 <input
                     onChange={handleChange} 
                 />
-                <button 
-                    onClick={handleSubmit}
+                <button
                     type="submit"
                 >Add</button>
             </form>
-            <div>
-                {data.map(item => {
-                    return (
-                        <div className="lists">
-                            <input type="checkbox" />
-                            <p>{item}</p>
-                        </div>
-                        )
-                    })
-                }
-            </div>
+            <All handleChangeCheck={handleChangeCheck} data={data} />
         </div>
     )
 }
