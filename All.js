@@ -2,17 +2,17 @@ import React from "react";
 
 function All({data, handleChangeCheck}) {
     return (
-        <div>
+        <ul>
             {data.map(item => {
                 return (
-                    <div key={item.id} className="lists">
+                    <li key={item.id} className="lists">
                         <input onClick={handleChangeCheck} type="checkbox" />
-                        <p>{item.title}</p>
-                    </div>
+                        <span>{item.title}</span>
+                    </li>
                     )
                 })
             }
-        </div>
+        </ul>
     )
 }
 

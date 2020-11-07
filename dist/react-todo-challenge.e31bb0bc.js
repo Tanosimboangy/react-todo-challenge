@@ -29866,14 +29866,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function All(_ref) {
   var data = _ref.data,
       handleChangeCheck = _ref.handleChangeCheck;
-  return /*#__PURE__*/_react.default.createElement("div", null, data.map(function (item) {
-    return /*#__PURE__*/_react.default.createElement("div", {
+  return /*#__PURE__*/_react.default.createElement("ul", null, data.map(function (item) {
+    return /*#__PURE__*/_react.default.createElement("li", {
       key: item.id,
       className: "lists"
     }, /*#__PURE__*/_react.default.createElement("input", {
       onClick: handleChangeCheck,
       type: "checkbox"
-    }), /*#__PURE__*/_react.default.createElement("p", null, item.title));
+    }), /*#__PURE__*/_react.default.createElement("span", null, item.title));
   }));
 }
 
