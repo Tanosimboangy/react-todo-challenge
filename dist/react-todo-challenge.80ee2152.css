@@ -9,6 +9,9 @@ body h1 {
   font-weight: 30px;
   margin: 0;
 }
+body .line_through {
+  text-decoration: line-through;
+}
 body form {
   display: flex;
   flex-direction: row;
@@ -22,40 +25,67 @@ body form input {
   font-size: 20px;
   outline: none;
   background-color: #ebebeb;
+  padding: 20px 30px;
 }
-body form input:focus {
+body form input:hover {
   border: 1px solid blueviolet;
-  box-shadow: 2px 2px 2px black;
+  box-shadow: 1px 1px 1px black;
   outline: none;
 }
 body form button {
   margin-left: 10px;
   border-radius: 10px;
-  border: 1px solid blue;
+  border: none;
   outline: none;
-  padding-right: 10px;
-  padding-left: 10px;
+  padding-right: 15px;
+  padding-left: 15px;
   font-size: 20px;
   font-weight: 800;
-  color: orangered;
-  background-color: darkgreen;
+  color: blue;
+  background-color: #d8d4d4;
+}
+body form button:hover {
+  border: 1px solid blueviolet;
+  box-shadow: 1px 1px 1px black;
 }
 body .container {
-  max-width: 60%;
+  max-width: 90%;
   margin: auto;
 }
-body ul {
+body .lists_items {
   padding: 0;
 }
-body ul li {
+body .lists_items li {
   list-style: none;
 }
-body ul .lists {
+body .lists_items .lists {
+  border-bottom: 1px solid black;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  color: white;
+  background-color: black;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 17px;
+  font-size: 20px;
+}
+body .lists_items .lists input {
+  margin-right: 32px;
+}
+
+@media (min-width: 720px) {
+  .container {
+    max-width: 70%;
+    margin: auto;
+  }
+
+  .lists_items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .lists_items li {
+    margin-right: 10px;
+  }
 }
 
 /*# sourceMappingURL=/react-todo-challenge.80ee2152.css.map */

@@ -24,8 +24,12 @@ function useContext() {
     }
 
     function handleChangeCheck(id) {
-        const crossWord = data.find(item => item.id === id);
-        console.log(crossWord);
+        const updatedTodos = data.map(item => {
+            return item.id === id
+            ? { ...item, isComplete: !item.isComplete }
+            : item;
+        });
+        setData(updatedTodos);
     }
 
   return {inputValue, handleChange, handleSubmit, data, handleChangeCheck };
