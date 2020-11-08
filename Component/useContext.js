@@ -32,6 +32,6 @@ function useContext() {
         setData(updatedTodos);
     }
 
-  return {inputValue, handleChange, handleSubmit, data, handleChangeCheck };
+  return {inputValue, handleChange, handleSubmit, data, handleChangeCheck, setData };
 };
 export default useContext;

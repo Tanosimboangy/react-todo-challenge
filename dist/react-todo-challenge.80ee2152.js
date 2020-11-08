@@ -189,7 +189,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"C:\\Users\\Jaccquit\\code\\react-todo-challenge\\fonts\\Lato-Regular.woff2":[["Lato-Regular.1c034558.woff2","fonts/Lato-Regular.woff2"],"fonts/Lato-Regular.woff2"],"C:\\Users\\Jaccquit\\code\\react-todo-challenge\\fonts\\Lato-Regular.woff":[["Lato-Regular.5200f20d.woff","fonts/Lato-Regular.woff"],"fonts/Lato-Regular.woff"],"_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -217,7 +217,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53548" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53908" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

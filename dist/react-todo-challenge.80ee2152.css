@@ -1,6 +1,10 @@
+@font-face {
+  font-family: "Lato";
+  src: local(Lato), url(/Lato-Regular.1c034558.woff2) format("woff2"), url(/Lato-Regular.5200f20d.woff) format("woff");
+}
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Lato";
 }
 body h1 {
   text-align: center;
@@ -48,6 +52,24 @@ body form button:hover {
   border: 1px solid blueviolet;
   box-shadow: 1px 1px 1px black;
 }
+body .navigation ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 2px solid black;
+  padding: 16px 0;
+  margin-bottom: 16px;
+}
+body .navigation ul li a {
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 20px;
+  color: #000000;
+}
+body .navigation ul li a:active {
+  border-bottom: 2px solid blue;
+  border-radius: 10px;
+}
 body .container {
   max-width: 90%;
   margin: auto;
@@ -58,12 +80,15 @@ body .lists_items {
 body .lists_items li {
   list-style: none;
 }
+body .lists_items li button {
+  margin-left: 16px;
+}
 body .lists_items .lists {
   border-bottom: 1px solid black;
   display: flex;
   flex-direction: row;
-  color: white;
-  background-color: black;
+  justify-content: space-between;
+  color: black;
   border-radius: 10px;
   margin-bottom: 10px;
   padding: 17px;
@@ -79,10 +104,6 @@ body .lists_items .lists input {
     margin: auto;
   }
 
-  .lists_items {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
   .lists_items li {
     margin-right: 10px;
   }

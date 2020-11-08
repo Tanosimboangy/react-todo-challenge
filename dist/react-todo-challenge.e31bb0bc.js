@@ -33933,7 +33933,8 @@ function useContext() {
     handleChange: handleChange,
     handleSubmit: handleSubmit,
     data: data,
-    handleChangeCheck: handleChangeCheck
+    handleChangeCheck: handleChangeCheck,
+    setData: setData
   };
 }
 
@@ -33962,10 +33963,11 @@ function All(_ref) {
       className: "lists",
       key: item.id
     }, /*#__PURE__*/_react.default.createElement("input", {
-      onClick: function onClick() {
+      onChange: function onChange() {
         return handleChangeCheck(item.id);
       },
-      type: "checkbox"
+      type: "checkbox",
+      checked: item.isComplete
     }), /*#__PURE__*/_react.default.createElement("span", {
       className: item.isComplete ? "line_through" : ""
     }, item.title));
@@ -33991,17 +33993,22 @@ function Complete(_ref) {
       handleChangeCheck = _ref.handleChangeCheck;
   return /*#__PURE__*/_react.default.createElement("ul", {
     className: "lists_items"
-  }, data.isComplete ? /*#__PURE__*/_react.default.createElement("li", {
-    className: "lists",
-    key: data.id
-  }, /*#__PURE__*/_react.default.createElement("input", {
-    onClick: function onClick() {
-      return handleChangeCheck(data.id);
-    },
-    type: "checkbox"
-  }), /*#__PURE__*/_react.default.createElement("span", {
-    className: data.isComplete ? "line_through" : ""
-  }, data.title)) : '');
+  }, data.filter(function (item) {
+    return item.isComplete === false;
+  }).map(function (item) {
+    return /*#__PURE__*/_react.default.createElement("li", {
+      className: "lists",
+      key: item.id
+    }, /*#__PURE__*/_react.default.createElement("input", {
+      onChange: function onChange() {
+        return handleChangeCheck(item.id);
+      },
+      checked: item.isComplete,
+      type: "checkbox"
+    }), /*#__PURE__*/_react.default.createElement("span", {
+      className: item.isComplete ? "line_through" : ""
+    }, item.title));
+  }));
 }
 
 var _default = Complete;
@@ -34020,20 +34027,49 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function Complete(_ref) {
   var data = _ref.data,
-      handleChangeCheck = _ref.handleChangeCheck;
+      handleChangeCheck = _ref.handleChangeCheck,
+      setData = _ref.setData;
+
+  function handleDelete(id) {
+    var dataToDelete = data.filter(function (item) {
+      return item.id !== id;
+    });
+    setData(dataToDelete);
+    console.log(data);
+  }
+
+  function handleChangeAll() {
+    var dataToDeleteAll = data.filter(function (item) {
+      return item.isComplete === false;
+    });
+    setData(dataToDeleteAll);
+  }
+
   return /*#__PURE__*/_react.default.createElement("ul", {
     className: "lists_items"
-  }, data.isComplete ? /*#__PURE__*/_react.default.createElement("li", {
-    className: "lists",
-    key: data.id
-  }, /*#__PURE__*/_react.default.createElement("input", {
-    onClick: function onClick() {
-      return handleChangeCheck(data.id);
-    },
-    type: "checkbox"
-  }), /*#__PURE__*/_react.default.createElement("span", {
-    className: data.isComplete ? "line_through" : ""
-  }, data.title), /*#__PURE__*/_react.default.createElement("button", null, "delete")) : '');
+  }, data.filter(function (item) {
+    return item.isComplete === true;
+  }).map(function (item) {
+    return /*#__PURE__*/_react.default.createElement("li", {
+      className: "lists",
+      key: item.id
+    }, /*#__PURE__*/_react.default.createElement("input", {
+      onChange: function onChange() {
+        return handleChangeCheck(item.id);
+      },
+      type: "checkbox",
+      checked: item.isComplete
+    }), /*#__PURE__*/_react.default.createElement("span", {
+      className: item.isComplete ? "line_through" : ""
+    }, item.title), /*#__PURE__*/_react.default.createElement("button", {
+      id: item.id,
+      onClick: function onClick() {
+        return handleDelete(item.id);
+      }
+    }, "delete"));
+  }), /*#__PURE__*/_react.default.createElement("button", {
+    onClick: handleChangeAll
+  }, "Delete"));
 }
 
 var _default = Complete;
@@ -34066,17 +34102,14 @@ function App() {
       handleChange = _useContext.handleChange,
       handleSubmit = _useContext.handleSubmit,
       data = _useContext.data,
+      setData = _useContext.setData,
       handleChangeCheck = _useContext.handleChangeCheck;
 
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "container"
-  }, /*#__PURE__*/_react.default.createElement("h1", null, "TO DO APP"), /*#__PURE__*/_react.default.createElement("form", {
-    onSubmit: handleSubmit
-  }, /*#__PURE__*/_react.default.createElement("input", {
-    onChange: handleChange
-  }), /*#__PURE__*/_react.default.createElement("button", {
-    type: "submit"
-  }, "Add")), /*#__PURE__*/_react.default.createElement("nav", null, /*#__PURE__*/_react.default.createElement("ul", {
+  }, /*#__PURE__*/_react.default.createElement("h1", null, "TO DO APP"), /*#__PURE__*/_react.default.createElement("nav", {
+    className: "navigation"
+  }, /*#__PURE__*/_react.default.createElement("ul", {
     className: "lists_items"
   }, /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/"
@@ -34084,7 +34117,14 @@ function App() {
     to: "/active"
   }, "Active")), /*#__PURE__*/_react.default.createElement("li", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/complete"
-  }, "Completed")))), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Switch, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+  }, "Completed")))), /*#__PURE__*/_react.default.createElement("form", {
+    onSubmit: handleSubmit
+  }, /*#__PURE__*/_react.default.createElement("input", {
+    onChange: handleChange
+  }), /*#__PURE__*/_react.default.createElement("button", {
+    type: "submit"
+  }, "Add")), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Switch, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
+    exact: true,
     path: "/",
     key: data.id
   }, /*#__PURE__*/_react.default.createElement(_All.default, {
@@ -34101,6 +34141,7 @@ function App() {
     key: data.id
   }, /*#__PURE__*/_react.default.createElement(_Complete.default, {
     handleChangeCheck: handleChangeCheck,
+    setData: setData,
     data: data
   }))));
 }
@@ -34149,7 +34190,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53548" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53908" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

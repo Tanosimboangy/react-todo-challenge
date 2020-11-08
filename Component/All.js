@@ -3,10 +3,10 @@ import React from "react";
 function All({data, handleChangeCheck}) {
     return (
         <ul  className="lists_items">
-            {data.map(item => {
+             {data.map(item => {
                 return (
                     <li className="lists" key={item.id}>
-                        <input onClick={() => handleChangeCheck(item.id)} type="checkbox" />
+                        <input onChange={() => handleChangeCheck(item.id)} type="checkbox" checked ={item.isComplete} />
                         <span className={item.isComplete ? "line_through" : ""}>{item.title}</span>
                     </li>
                     )
