@@ -1,8 +1,14 @@
 import { useState } from 'react';
 function useContext() {
 
+    // const initialValue = () => window.localStorage.getItem("data");
+    // useEffect(() => {
+    //     window.localStorage.setItem('data', data);
+    // }, [inputValue])
+
     const [inputValue, setInputValue] = useState("");
     const [data, setData] = useState([]);
+    // setData(initialValue);
 
     function handleChange(e) {
         e.preventDefault();

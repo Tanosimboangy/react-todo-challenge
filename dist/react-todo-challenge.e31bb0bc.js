@@ -33890,6 +33890,10 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function useContext() {
+  // const initialValue = () => window.localStorage.getItem("data");
+  // useEffect(() => {
+  //     window.localStorage.setItem('data', data);
+  // }, [inputValue])
   var _useState = (0, _react.useState)(""),
       _useState2 = _slicedToArray(_useState, 2),
       inputValue = _useState2[0],
@@ -33898,7 +33902,8 @@ function useContext() {
   var _useState3 = (0, _react.useState)([]),
       _useState4 = _slicedToArray(_useState3, 2),
       data = _useState4[0],
-      setData = _useState4[1];
+      setData = _useState4[1]; // setData(initialValue);
+
 
   function handleChange(e) {
     e.preventDefault();
@@ -34066,8 +34071,20 @@ function Complete(_ref) {
       onClick: function onClick() {
         return handleDelete(item.id);
       }
-    }, "delete"));
+    }, /*#__PURE__*/_react.default.createElement("svg", {
+      xmlns: "http://www.w3.org/2000/svg",
+      height: "24",
+      fill: "blue",
+      viewBox: "0 0 24 24",
+      width: "24"
+    }, /*#__PURE__*/_react.default.createElement("path", {
+      d: "M0 0h24v24H0z",
+      fill: "none"
+    }), /*#__PURE__*/_react.default.createElement("path", {
+      d: "M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+    }))));
   }), /*#__PURE__*/_react.default.createElement("button", {
+    className: "deleteAllButt",
     onClick: handleChangeAll
   }, "Delete"));
 }
@@ -34190,7 +34207,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53908" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57448" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

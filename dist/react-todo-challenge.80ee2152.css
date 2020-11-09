@@ -81,7 +81,9 @@ body .lists_items li {
   list-style: none;
 }
 body .lists_items li button {
-  margin-left: 16px;
+  border: none;
+  background-color: white;
+  outline: none;
 }
 body .lists_items .lists {
   border-bottom: 1px solid black;
@@ -89,13 +91,22 @@ body .lists_items .lists {
   flex-direction: row;
   justify-content: space-between;
   color: black;
-  border-radius: 10px;
   margin-bottom: 10px;
   padding: 17px;
   font-size: 20px;
 }
 body .lists_items .lists input {
   margin-right: 32px;
+}
+body .lists_items .deleteAllButt {
+  padding: 10px 17px;
+  font-size: 21px;
+  border: none;
+  border-radius: 6px;
+  color: blue;
+}
+body .lists_items .deleteAllButt:hover {
+  box-shadow: 2px 2px 2px black;
 }
 
 @media (min-width: 720px) {
